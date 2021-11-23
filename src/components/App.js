@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Question from "./Question";
 import quiz from "../data/quiz";
 
 function App() {
   const [questions, setQuestions] = useState(quiz);
   const [currentQuestionId, setCurrentQuestion] = useState(1);
-  const [timeRemaining, setTimeRemaining] = useState(10);
   const [score, setScore] = useState(0);
   const currentQuestion = questions.find((q) => q.id === currentQuestionId);
 
@@ -19,7 +18,7 @@ function App() {
       setScore((score) => score + 1);
     }
   }
-  
+
 
   return (
     <main>
