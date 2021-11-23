@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function Question({ question, onAnswered }) {
   const [timeRemaining, setTimeRemaining] = useState(10);
@@ -12,6 +12,13 @@ function Question({ question, onAnswered }) {
 
   const { id, prompt, answers, correctIndex } = question;
 
+  // FOR TEACHER
+  function callBack() {
+    setTimeRemaining(timeRemaining - 1)
+  }
+  useEffect(() => (setTimeout(callBack, 1000)) ,[timeRemaining])
+  console.log(timeRemaining);
+  /////////////////////////
   return (
     <>
       <h1>Question {id}</h1>

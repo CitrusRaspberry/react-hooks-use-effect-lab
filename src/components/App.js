@@ -19,12 +19,7 @@ function App() {
       setScore((score) => score + 1);
     }
   }
-  function callBack() {
-    setTimeRemaining(timeRemaining - 1)
-  }
-
-  useEffect(() => (setTimeout(callBack, 1000)) ,[timeRemaining])
-  console.log(timeRemaining);
+  
 
   return (
     <main>
