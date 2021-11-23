@@ -13,10 +13,17 @@ function Question({ question, onAnswered }) {
   const { id, prompt, answers, correctIndex } = question;
 
   // FOR TEACHER
-  function callBack() {
-    setTimeRemaining(timeRemaining - 1)
+  function handleTimer() {
+    if (timeRemaining <= 0) {
+      handleAnswer(false);
+    } else {
+      setTimeRemaining(() => timeRemaining - 1);
+    }
   }
-  useEffect(() => (setTimeout(callBack, 1000)) ,[timeRemaining])
+  useEffect(() => {
+    const timer = setTimeout(handleTimer, 1000);
+    return () => clearTimeout(timer);
+  } ,[timeRemaining])
   console.log(timeRemaining);
   /////////////////////////
   return (
